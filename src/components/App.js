@@ -3,13 +3,13 @@ import React, { Component } from "react";
 import DigitalClock from "./DigitalClock/DigitalClock";
 import Building from "./Building/Building";
 import ApiService from "../api/ApiService";
-import SwitchButton from "./SwitchButton/SwitchButton";
 
 export default class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      objSunrise: {},
+      sunrise: "",
+      sunset: "",
     };
   }
 
@@ -19,8 +19,9 @@ export default class App extends Component {
         ApiService.getTimeSunrise(
           `lat=${position.coords.latitude}&lng=${position.coords.longitude}`
         ).then((res) => {
-          this.setState({ objSunrise: res });
-          console.log(this.state.objSunrise);
+          this.setState({ sunrise: res.sunrise });
+          this.setState({ sunset: res.sunset });
+          console.log(this.state);
         });
       });
     } else {
@@ -34,7 +35,6 @@ export default class App extends Component {
         <div className="container mt-5">
           <DigitalClock />
           <Building />
-          <SwitchButton />
         </div>
       </div>
     );

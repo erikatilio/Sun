@@ -1,5 +1,6 @@
 import React from "react";
-import WindowItem from "../WindowItem/WindowItem";
+import ListWindowItem from "../ListWindowItem/ListWindowItem";
+import SwitchButton from "../SwitchButton/SwitchButton";
 
 export default function Building() {
   const listWindow = [
@@ -16,10 +17,11 @@ export default function Building() {
     "Janela 11",
     "Janela 12",
   ];
-  
+
   return (
     <div className="container">
-      <WindowItem listWindow={listWindow.reverse()} />
+      <ListWindowItem listWindow={listWindow.reverse()} />
+      <SwitchButton />
     </div>
   );
 }
