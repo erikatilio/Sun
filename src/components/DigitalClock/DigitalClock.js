@@ -8,6 +8,8 @@ export default function DigitalClock() {
     time = new Date().toLocaleTimeString();
     setCtime(time);
   };
+
   setInterval(updateTime, 1000);
-  return <h1 className="mb-5">{ctime}</h1>;
+
+  return <h1 className="time-digital-clock display-2 mb-5">{ctime}</h1>;
 }

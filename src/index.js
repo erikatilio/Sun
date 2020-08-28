@@ -1,7 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
-import App from "./App";
+import App from "./components/App";
+
 const urlBase = "https://api.sunrise-sunset.org";
 
 ReactDOM.render(

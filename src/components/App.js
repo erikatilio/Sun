@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 
-import DigitalClock from "./components/DigitalClock/DigitalClock";
-import Building from "./components/Building/Building";
-import ApiService from "./API/ApiService";
+import DigitalClock from "./DigitalClock/DigitalClock";
+import Building from "./Building/Building";
+import ApiService from "../api/ApiService";
+import SwitchButton from "./SwitchButton/SwitchButton";
 
 export default class App extends Component {
   constructor(props) {
@@ -11,6 +12,7 @@ export default class App extends Component {
       objSunrise: {},
     };
   }
+
   componentDidMount() {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition((position) => {
@@ -25,15 +27,14 @@ export default class App extends Component {
       alert("Geolocation is not supported by this browser.");
     }
   }
+
   render() {
     return (
       <div className="App">
-        <div className="container text-center mt-5">
+        <div className="container mt-5">
           <DigitalClock />
           <Building />
-          <button type="button" className="btn btn-outline-info mt-5">
-            LIGAR
-          </button>
+          <SwitchButton />
         </div>
       </div>
     );
