@@ -8,7 +8,7 @@ const consumesApi = (param) => {
 };
 
 const ApiService = {
-  getTimeSunrise: (param) => consumesApi(param),
+  getTimeApi: (param) => consumesApi(param),
   trataErros: (res) => {
     if (!res.ok) {
       throw Error(res.responseText);
