@@ -1,0 +1,7 @@
+node_modules
+npm-debug.log
+Construir
+.dockerignore
+**/.ir
+** /. DS_Store
+** / node_modules
