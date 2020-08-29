@@ -4,11 +4,11 @@ import DigitalClock from "../DigitalClock/DigitalClock";
 import Building from "../Building/Building";
 import SwitchButton from "../SwitchButton/SwitchButton";
 import ApiService from "../../api/ApiService";
+import CalculatePeriodDay from "../../utils/CalculatePeriodDay";
+import FormateAMPM from "../../utils/FormateAMPM";
 
 export default function Home() {
-  const [sunrise, setSunrise] = useState();
-  const [sunset, setSunset] = useState();
-  const [activeLights, setActiveLights] = useState(false);
+  const [activeLights, setActiveLights] = useState();
 
   useEffect(() => {
     if (navigator.geolocation) {
@@ -16,9 +16,9 @@ export default function Home() {
         ApiService.getTimeApi(
           `lat=${position.coords.latitude}&lng=${position.coords.longitude}`
         ).then((res) => {
-          setSunrise(res.sunrise);
-          setSunset(res.sunset);
-          console.log(sunrise, sunset);
+          setActiveLights(
+            CalculatePeriodDay(FormateAMPM(new Date()), res.sunrise, res.sunset)
+          );
         });
       });
     } else {

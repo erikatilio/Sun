@@ -1,18 +1,18 @@
 import React, { useState, Fragment } from "react";
 import FormateAMPM from "../../utils/FormateAMPM";
-import FormateSecondsTime from "../../utils/FormateSecondsTime";
+import FormateSecondsTimePorcentage from "../../utils/FormateSecondsTimePorcentage";
 
 export default function DigitalClock() {
   let time = new Date();
   const [ctime, setCtime] = useState(FormateAMPM(time));
   const [cseconds, setCseconds] = useState(
-    FormateSecondsTime(time.getSeconds())
+    FormateSecondsTimePorcentage(time.getSeconds())
   );
 
   const updateTime = () => {
     time = new Date();
     setCtime(FormateAMPM(time));
-    setCseconds(FormateSecondsTime(time.getSeconds()));
+    setCseconds(FormateSecondsTimePorcentage(time.getSeconds()));
   };
 
   setInterval(updateTime, 1000);
