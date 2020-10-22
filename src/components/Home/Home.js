@@ -2,8 +2,7 @@ import React, { useState, useEffect } from "react";
 
 import DigitalClock from "../DigitalClock/DigitalClock";
 import Building from "../Building/Building";
-import SwitchButton from "../SwitchButton/SwitchButton";
-import ApiService from "../../api/ApiService";
+import ApiService from "../../API/ApiService";
 import CalculatePeriodDay from "../../utils/CalculatePeriodDay";
 import FormateAMPM from "../../utils/FormateAMPM";
 
@@ -26,15 +25,10 @@ export default function Home() {
     }
   });
 
-  function changeLights() {
-    setActiveLights(!activeLights);
-  }
-
   return (
     <div className="container mt-5">
       <DigitalClock />
       <Building lights={activeLights} />
-      <SwitchButton changeLights={changeLights} />
     </div>
   );
 }
